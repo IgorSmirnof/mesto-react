@@ -2,9 +2,8 @@ import React from "react";
 
 function Card({ card, onCardClick }) {
   const handleCardClick = () => onCardClick(card);
-  // console.log( card)
 
-    return (
+  return (
     // <template id="card">
     <li className="card">
       <img

@@ -3,7 +3,12 @@ import React from "react";
 import { api } from "../utils/api";
 import Card from "./Card";
 
-export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
+export default function Main({
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+}) {
   const [userName, setUserName] = React.useState("");
   const [userDescription, setUserDescription] = React.useState("");
   const [userAvatar, setUserAvatar] = React.useState("");
@@ -16,10 +21,10 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
         setUserDescription(user.about);
         setUserAvatar(user.avatar);
         setCards(card);
-        console.log(card)
+        // console.log(card);
       })
       .catch((err) => alert(err));
-  }, []);  // <----<< [] -- прe загрузке!
+  }, []); // <----<< [] -- при монтировании один раз!
 
   return (
     <main className="main">
@@ -53,11 +58,9 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
 
       <section className="elements" aria-label="Фото мест.">
         <ul className="cards">
-
           {cards.map((card) => (
             <Card card={card} onCardClick={onCardClick} key={card._id} />
           ))}
-
         </ul>
       </section>
     </main>
