@@ -19,7 +19,7 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
         console.log(card)
       })
       .catch((err) => alert(err));
-  }, []);
+  }, []);  // <----<< [] -- прe загрузке!
 
   return (
     <main className="main">
@@ -58,19 +58,6 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
             <Card card={card} onCardClick={onCardClick} key={card._id} />
           ))}
 
-          {/* <template id="card">
-            <li className="card">
-              <img src="#" alt="" className="card__image" />
-              <button type="button" className="card__basura button"></button>
-              <div className="card__subtitle">
-                <h2 className="card__place"> </h2>
-                <div className="card__like-wrap">
-                  <button type="button" className="card__like button"></button>
-                  <span className="card__like-qty"></span>
-                </div>
-              </div>
-            </li>
-          </template> */}
         </ul>
       </section>
     </main>
