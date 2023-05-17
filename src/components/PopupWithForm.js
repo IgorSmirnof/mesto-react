@@ -2,13 +2,13 @@ import React from "react";
 
 export default function PopupWithForm({ title, name, isOpen, onClose, children}) {
   return (
-    <div className={`popup popup_${name}`} >
+    <div className={`popup popup_${name} ${isOpen ? "popup_opened" : ""}` } >
         <form
           className="popup__container"
           autoComplete="off"
           name={`form-${name}`}
         >
-          <button type="button" className="popup__close button"></button>
+          <button type="button" className="popup__close button"  onClick={onClose}></button>
           <h2 className="popup__title">{title}</h2>
           {/* <input
           id={`input-${name}`}
@@ -21,7 +21,7 @@ export default function PopupWithForm({ title, name, isOpen, onClose, children})
           /> */}
         <span className={`input-${name}-error input-error`}></span>
         {children}
-          <button className="popup__button-save button">Сохранить</button>
+          <button className="popup__button-save button" type="submit">Сохранить</button>
         </form>
       </div>
   )
