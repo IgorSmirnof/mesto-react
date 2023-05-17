@@ -1,12 +1,14 @@
 import React from "react";
 import avatar__link from "../images/jacob.jpg";
 
-export default function Main() {
+export default function Main({onEditProfile, onAddPlace, onEditAvatar,}) {
+  
+
   return (
 
     <main className="main">
       <section className="profile" aria-label="Информация о пользователе.">
-        <div className="avatar">
+        <div className="avatar" onClick = {onEditAvatar}>
           <img src={avatar__link} alt="Фото пользователя."
           className="avatar__img" />
         </div>
@@ -14,11 +16,11 @@ export default function Main() {
         <div className="profile__user">
           <div className="profile__title">
             <h1 className="profile__name">Евгений Кустофф</h1>
-            <button type="button" className="profile__button-edit button"></button>
+            <button type="button" className="profile__button-edit button" onClick = {onEditProfile}></button>
           </div>
           <p className="profile__description">Исследователь океана</p>
         </div>
-        <button type="button" className="profile__button-add button"></button>
+        <button type="button" className="profile__button-add button" onClick = {onAddPlace}></button>
       </section>
 
       <section className="elements" aria-label="Фото мест.">
@@ -38,6 +40,11 @@ export default function Main() {
           </template>
         </ul>
       </section>
+
+
+
+
+
     </main>
 
   )
