@@ -19,7 +19,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  
+  "homepage": "git@github.com:IgorSmirnof/mesto-react",
   "eslintConfig": {
     "extends": [
       "react-app",
