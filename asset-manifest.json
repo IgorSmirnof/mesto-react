@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/git@github.com:IgorSmirnof/mesto-react/static/css/main.ebd9cce4.css",
+    "main.css": "/git@github.com:IgorSmirnof/mesto-react/static/css/main.292f4472.css",
     "main.js": "/git@github.com:IgorSmirnof/mesto-react/static/js/main.6265e004.js",
     "static/media/Inter-Black.ttf": "/git@github.com:IgorSmirnof/mesto-react/static/media/Inter-Black.5bc9c4d5770576fe98af.ttf",
     "static/media/Inter-Medium.ttf": "/git@github.com:IgorSmirnof/mesto-react/static/media/Inter-Medium.9cbff87dc577185b8630.ttf",
@@ -20,11 +20,11 @@
     "static/media/pen.svg": "/git@github.com:IgorSmirnof/mesto-react/static/media/pen.ae1a976ddb506239e9f0.svg",
     "static/media/close-icon.svg": "/git@github.com:IgorSmirnof/mesto-react/static/media/close-icon.039f1f5203f653b4bacd.svg",
     "static/media/plus.svg": "/git@github.com:IgorSmirnof/mesto-react/static/media/plus.bed8c136e13907f5eefb.svg",
-    "main.ebd9cce4.css.map": "/git@github.com:IgorSmirnof/mesto-react/static/css/main.ebd9cce4.css.map",
+    "main.292f4472.css.map": "/git@github.com:IgorSmirnof/mesto-react/static/css/main.292f4472.css.map",
     "main.6265e004.js.map": "/git@github.com:IgorSmirnof/mesto-react/static/js/main.6265e004.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebd9cce4.css",
+    "static/css/main.292f4472.css",
     "static/js/main.6265e004.js"
   ]
 }
