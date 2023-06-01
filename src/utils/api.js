@@ -59,24 +59,47 @@ class Api {
   }
 
   //передача лайка на сервер
-  sendLike(dataId) {
-    return fetch(`${this._url}/cards/${dataId}/likes`, {
-      method: "PUT",
-      headers: {
-        authorization: this._authorization,
-      },
-    }).then((res) => this._checkResponse(res));
+  // sendLike(dataId) {
+  //   return fetch(`${this._url}/cards/${dataId}/likes`, {
+  //     method: "PUT",
+  //     headers: {
+  //       authorization: this._authorization,
+  //     },
+  //   }).then((res) => this._checkResponse(res));
+  // }
+
+  // //удаление лайка на сервере
+  // deleteLike(dataId) {
+  //   return fetch(`${this._url}/cards/${dataId}/likes`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       authorization: this._authorization,
+  //     },
+  //   }).then((res) => this._checkResponse(res));
+  // }
+
+  changeLikeCardStatus(dataId, isLiked ) { 
+    if (isLiked) {
+      return fetch(`${this._url}/cards/${dataId}/likes`, {
+        method: "DELETE",
+        headers: {
+          authorization: this._authorization,
+        },
+      }).then((res) => this._checkResponse(res));
+    } else {
+      return fetch(`${this._url}/cards/${dataId}/likes`, {
+        method: "PUT",
+        headers: {
+          authorization: this._authorization,
+        },
+      }).then((res) => this._checkResponse(res));
+    }
+
+
   }
 
-  //удаление лайка на сервере
-  deleteLike(dataId) {
-    return fetch(`${this._url}/cards/${dataId}/likes`, {
-      method: "DELETE",
-      headers: {
-        authorization: this._authorization,
-      },
-    }).then((res) => this._checkResponse(res));
-  }
+
+
 
   //удаление карточки с сервера
   deleteCardApi(dataId) {
