@@ -6,6 +6,7 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import EditProfilePopup from './EditProfilePopup';
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
@@ -21,7 +22,7 @@ function App() {
         setCurrentUser(user);
         setCards(card);
 
-        console.log(user);
+        // console.log(user);
       })
       .catch((err) => console.log(err));
   }, []); // <----<< [] -- при монтировании один раз!
@@ -73,6 +74,17 @@ function App() {
       .catch((err) => console.log("error delete card :" + err))
       ;
   };
+
+  function handleUpdateUser(value) {
+    console.log(value);
+    // alert(name, about);
+    api.setUserInfoApi(value)    
+      .then((res) => {
+        setCurrentUser(res);
+        closeAllPopups()
+      })   // *  <--------------<< 
+      .catch((err) => console.log(err))
+  };
   
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -91,34 +103,11 @@ function App() {
         />
         <Footer />
 
-        <PopupWithForm
-          title="Редактировать профиль"
-          name="profile"
+        <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
-        >
-          <input
-            id="input-name"
-            className="popup__input popup__input_field_name"
-            minLength="2"
-            maxLength="40"
-            required
-            placeholder=" Введите имя"
-            name="name"
-          />
-          <span className="input-name-error input-error"></span>
-
-          <input
-            id="input-description"
-            className="popup__input popup__input_field_description"
-            minLength="2"
-            maxLength="200"
-            required
-            placeholder=" Вид деятельности"
-            name="description"
-          />
-          <span className="input-description-error input-error"></span>
-        </PopupWithForm>
+          onUpdateUser={handleUpdateUser}
+        />
 
         <PopupWithForm
           title="Новое место"
