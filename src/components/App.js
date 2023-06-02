@@ -7,6 +7,7 @@ import ImagePopup from "./ImagePopup";
 import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
@@ -76,7 +77,7 @@ function App() {
   };
 
   function handleUpdateUser(value) {
-    console.log(value);
+    // console.log(value);
     // alert(name, about);
     api.setUserInfoApi(value)    
       .then((res) => {
@@ -84,6 +85,17 @@ function App() {
         closeAllPopups()
       })   // *  <--------------<< 
       .catch((err) => console.log(err))
+  };
+
+  function handleUpdateAvatar(value) {
+    console.log(value);
+    // alert(name, about);
+    api.setUserAvatar(value)    
+    .then((res) => {
+      setCurrentUser(res);
+      closeAllPopups()
+    })
+    .catch((err) => console.log(err));
   };
   
   return (
@@ -108,7 +120,12 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
-
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+        />
+        
         <PopupWithForm
           title="Новое место"
           name="image_add"
@@ -136,23 +153,8 @@ function App() {
           <span className="input-link-error input-error"></span>
         </PopupWithForm>
 
-        <PopupWithForm
-          title="Обновить аватар"
-          name="avatar"
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input
-            id="input-avatar"
-            className="popup__input popup__input_avatar"
-            minLength="2"
-            required
-            placeholder=" Введите ссылку на изображение"
-            type="url"
-            name="avatar"
-          />
-          <span className="input-avatar-error input-error"></span>
-        </PopupWithForm>
+        
+
 
         {/* <PopupWithForm
         title='Вы уверены?'
