@@ -56,6 +56,7 @@ export default function Main({
           </div>
           <p className="profile__description">{currentUser.about}</p>
         </div>
+
         <button
           type="button"
           className="profile__button-add button"

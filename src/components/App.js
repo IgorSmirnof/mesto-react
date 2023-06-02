@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import PopupWithForm from "./PopupWithForm";
+// import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
+import AddPlacePopup from './AddPlacePopup';
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
@@ -38,6 +39,7 @@ function App() {
 
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
+    console.log('handleAddPlaceClick');
   }
 
   function handleCardClick(card) {
@@ -88,7 +90,7 @@ function App() {
   };
 
   function handleUpdateAvatar(value) {
-    console.log(value);
+    
     // alert(name, about);
     api.setUserAvatar(value)    
     .then((res) => {
@@ -98,6 +100,19 @@ function App() {
     .catch((err) => console.log(err));
   };
   
+  function handleAddPlaceSubmit(value) {
+    console.log(value);
+
+    api.addNewCards(value)// .addNewCards({ name: place, link: link })
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+        closeAllPopups();
+      })
+      .catch((err) => console.log("добавлениe карточки :", err))
+    
+    // setCards([newCard, ...cards]); 
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="body-root">
@@ -126,32 +141,11 @@ function App() {
           onUpdateAvatar={handleUpdateAvatar}
         />
         
-        <PopupWithForm
-          title="Новое место"
-          name="image_add"
+        <AddPlacePopup 
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
-        >
-          <input
-            id="input-place"
-            className="popup__input popup__input_field_place"
-            minLength="2"
-            maxLength="30"
-            required
-            placeholder=" Название"
-            name="place"
-          />
-          <span className="input-place-error input-error"></span>
-          <input
-            id="input-link"
-            className="popup__input popup__input_field_link"
-            type="url"
-            required
-            placeholder=" Ссылка на картинку"
-            name="link"
-          />
-          <span className="input-link-error input-error"></span>
-        </PopupWithForm>
+          onAddPlace={handleAddPlaceSubmit}
+        />
 
         
 
