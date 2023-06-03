@@ -2,8 +2,6 @@ import React, { useEffect, useContext, useRef } from "react";
 import PopupWithForm from './PopupWithForm';
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-
-
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) { 
   const currentUser = useContext(CurrentUserContext);
 
@@ -20,7 +18,6 @@ const valueLink = useRef('');
       avatar: valueLink.current.value, /* Значение инпута, полученное с помощью рефа */
     });
   } 
-
 
   return (
     <PopupWithForm

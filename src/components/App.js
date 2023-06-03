@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-// import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
@@ -58,14 +57,11 @@ function App() {
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    // console.log(isLiked, currentUser._id)
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       });
-
-      // console.log("handleCardLike", card);
   } 
 
   function handleCardDelete(card) {
@@ -85,7 +81,7 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups()
-      })   // *  <--------------<< 
+      })
       .catch((err) => console.log(err))
   };
 
@@ -101,16 +97,13 @@ function App() {
   };
   
   function handleAddPlaceSubmit(value) {
-    console.log(value);
-
-    api.addNewCards(value)// .addNewCards({ name: place, link: link })
+    // console.log(value);
+    api.addNewCards(value)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.log("добавлениe карточки :", err))
-    
-    // setCards([newCard, ...cards]); 
   };
 
   return (
@@ -126,7 +119,6 @@ function App() {
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
           cards={cards}
-          // onCardLike={console.log("handleCardLike")}
         />
         <Footer />
 

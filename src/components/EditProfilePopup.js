@@ -28,7 +28,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         className="popup__input popup__input_field_name"
         minLength="2"
         maxLength="40"
-        // required
+        required
         placeholder=" Введите имя"
         onChange={ e => setName(e.target.value)}
         name={name}
@@ -40,7 +40,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         className="popup__input popup__input_field_description"
         minLength="2"
         maxLength="200"
-        // required
+        required
         placeholder=" Вид деятельности"
         onChange={ e => setDescription(e.target.value)}
         name={description}
