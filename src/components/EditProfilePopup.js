@@ -11,7 +11,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser, isOpen]); // <------<<with isOpen dont work, porque?
+    console.log("useEffect", currentUser);
+  }, [currentUser, isOpen]); 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +20,14 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       name: name,
       about: description,
     });
+    console.log(name, description);
   }
+  function handleSetName(e) {
+    setName(e.target.value)
+  };
+  function handleSetDescription(e) {
+    setDescription(e.target.value)
+  };
 
   return (
     <PopupWithForm title="Редактировать профиль" name="profile" isOpen = { isOpen } onClose = { onClose } onSubmit ={handleSubmit}>
@@ -30,8 +38,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         maxLength="40"
         required
         placeholder=" Введите имя"
-        onChange={ e => setName(e.target.value)}
-        name={name}
+        onChange={ handleSetName}
+        name='name'
+        value={name ?? 'fjhfjhfjh'}
       />
       <span className="input-name-error input-error"></span>
 
@@ -42,8 +51,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         maxLength="200"
         required
         placeholder=" Вид деятельности"
-        onChange={ e => setDescription(e.target.value)}
-        name={description}
+        onChange={ handleSetDescription }
+        name='about'
+        value={description ?? ''}
       />
       <span className="input-description-error input-error"></span>
     </PopupWithForm>

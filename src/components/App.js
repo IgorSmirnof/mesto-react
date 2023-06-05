@@ -77,7 +77,6 @@ function App() {
 
   function handleUpdateUser(value) {
     // console.log(value);
-    // alert(name, about);
     api.setUserInfoApi(value)    
       .then((res) => {
         setCurrentUser(res);

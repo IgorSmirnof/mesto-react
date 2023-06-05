@@ -20,7 +20,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
     setLink('');
   }, [isOpen]);
   
-  console.log('handleAddPlaceClick');
+  // console.log('handleAddPlaceClick');
 
   return(
   <PopupWithForm
