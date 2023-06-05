@@ -25,7 +25,7 @@ function App() {
 
         // console.log(user);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(" еггог получения промиса", err));
   }, []); // <----<< [] -- при монтировании один раз!
 
   function handleEditAvatarClick() {
@@ -61,7 +61,8 @@ function App() {
     api.changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
+      })
+      .catch((err) => console.log(" еггог кард лайк", err));
   } 
 
   function handleCardDelete(card) {
@@ -82,7 +83,7 @@ function App() {
         setCurrentUser(res);
         closeAllPopups()
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(" данные пользователя", err))
   };
 
   function handleUpdateAvatar(value) {
@@ -93,7 +94,7 @@ function App() {
       setCurrentUser(res);
       closeAllPopups()
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("апдейт аватар", err));
   };
   
   function handleAddPlaceSubmit(value) {

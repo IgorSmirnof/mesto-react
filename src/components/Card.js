@@ -18,7 +18,6 @@ function Card({ card, onCardLike, onCardDelete, onCardClick }) {
 
 //{/* <button type="button" className="card__like button"  onClick={handleLikeClick}></button> */}
   return (
-    <CurrentUserContext.Provider value={currentUser}>
     <li className="card">
       <img
         src={card.link}
@@ -37,7 +36,6 @@ function Card({ card, onCardLike, onCardDelete, onCardClick }) {
         </div>
       </div>
     </li>
-    </CurrentUserContext.Provider>
   );
 }
 
