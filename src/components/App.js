@@ -38,12 +38,12 @@ function App() {
 
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
-    console.log('handleAddPlaceClick');
+    // console.log('handleAddPlaceClick');
   }
 
   function handleCardClick(card) {
     setSelectedCard(card);
-    console.log(card);
+    // console.log(card);
   }
 
   function closeAllPopups() {
@@ -51,7 +51,7 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
-    console.log("closeAllPopups");
+    // console.log("closeAllPopups");
   }
 
   function handleCardLike(card) {
