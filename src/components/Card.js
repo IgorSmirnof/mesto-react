@@ -12,11 +12,7 @@ function Card({ card, onCardLike, onCardDelete, onCardClick }) {
   const isLiked = card.likes.some(i => i._id === currentUser._id);
   const cardLikeButtonClassName = (`card__like button ${isLiked && 'card__like_active'}`);
   
-    // console.log(isOwn, isLiked, currentUser._id)
 
-
-
-//{/* <button type="button" className="card__like button"  onClick={handleLikeClick}></button> */}
   return (
     <li className="card">
       <img
