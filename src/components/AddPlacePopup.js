@@ -19,8 +19,6 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
     setPlace('');
     setLink('');
   }, [isOpen]);
-  
-  // console.log('handleAddPlaceClick');
 
   return(
   <PopupWithForm
@@ -57,6 +55,5 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
     </PopupWithForm>
   )
 };
-
 
 export default AddPlacePopup;

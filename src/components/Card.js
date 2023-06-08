@@ -5,7 +5,6 @@ function Card({ card, onCardLike, onCardDelete, onCardClick }) {
   const handleCardClick = () => onCardClick(card);
   const handleLikeClick = () => onCardLike(card);
   const handleDeleteClick = () => onCardDelete(card);
-  // const handleFunc = () => onHandleFunc();
 
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.owner._id === currentUser._id;

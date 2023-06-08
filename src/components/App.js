@@ -38,12 +38,10 @@ function App() {
 
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
-    // console.log('handleAddPlaceClick');
   }
 
   function handleCardClick(card) {
     setSelectedCard(card);
-    // console.log(card);
   }
 
   function closeAllPopups() {
@@ -51,7 +49,6 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
-    // console.log("closeAllPopups");
   }
 
   function handleCardLike(card) {
@@ -69,14 +66,12 @@ function App() {
     api.deleteCardApi(card._id)
       .then(() => {
         setCards(state => state.filter((c) => c._id !== card._id));
-        // console.log(id, card); //          <-------------<<
       })
       .catch((err) => console.log("error delete card :" + err))
       ;
   };
 
   function handleUpdateUser(value) {
-    // console.log(value);
     api.setUserInfoApi(value)    
       .then((res) => {
         setCurrentUser(res);
@@ -86,8 +81,6 @@ function App() {
   };
 
   function handleUpdateAvatar(value) {
-    
-    // alert(name, about);
     api.setUserAvatar(value)    
     .then((res) => {
       setCurrentUser(res);
@@ -97,7 +90,6 @@ function App() {
   };
   
   function handleAddPlaceSubmit(value) {
-    // console.log(value);
     api.addNewCards(value)
       .then((newCard) => {
         setCards([newCard, ...cards]);
