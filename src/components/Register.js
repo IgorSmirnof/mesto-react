@@ -14,6 +14,7 @@ function Register() {
       handleSubmit={handleSubmit}
       textOfButton='Зарегистрироваться'
     >
+      
       <p className='intro-form__paragraph'>Уже зарегистрированы? <Link className='intro-form__link' to="/sign-in">Войти</Link>
       </p>
     </AuthForm>
